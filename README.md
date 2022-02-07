@@ -10,7 +10,7 @@ How to Do:
 2. Extract it!
 3. Copy/Move it, to the Parent Directory (Where, you want to Install).
 4. Open Terminal, Type chmod +x Ease1.0.1.sh
-5. Ease1.0.1.sh
+5. ./Ease1.0.1.sh
 6. Wait For a while, It will download the source files and install to that desire directory.
 7. It will simultaneous, create an environment files
 8. source these enviroment files or export to bashrc.
