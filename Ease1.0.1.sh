@@ -143,7 +143,7 @@ cd $parent
 # GSL-2.5 #
 ###########
 version="2.5"
-url="https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz"
+url="https://mirror.ibcp.fr/pub/gnu/gsl/gsl-$version.tar.gz"
 FInt="gsl-$version"
 File="$FInt.tar.gz"
 
