@@ -140,9 +140,9 @@ echo "#$FInt" >> $Env
 fi
 cd $parent
 ###########
-# GSL-2.5 #
+# GSL-2.8 #
 ###########
-version="2.5"
+version="2.8"
 url="https://mirror.ibcp.fr/pub/gnu/gsl/gsl-$version.tar.gz"
 FInt="gsl-$version"
 File="$FInt.tar.gz"
