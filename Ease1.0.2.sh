@@ -230,7 +230,7 @@ echo
 if [ -f "Makefile" ];
 then
 tput setaf 48; echo -e "Making ...\n"
-make -j4
+make -j$(($(nproc)-1))
 tput setaf 48; echo -e "Installing ...\n"
 make install
 else
