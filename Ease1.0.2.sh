@@ -1,18 +1,30 @@
 #!/bin/bash
 
 tput setaf 11;
-echo -e "Starting the Eigen3, GSL Installation Process ...\n"
+echo -e "Starting the GSL, GLoBES Installation Process ...\n"
 echo -e "Make sure, the system is connected to Internet\n"
 echo -e "Testing Connectivity ...\n"
-if ping -v -c 10 -W 1 0.0.0.0 1>/dev/null;
-then
+if curl -s --head --connect-timeout 3 https://www.google.com >/dev/null; then
 tput setaf 10; echo "Connection is ON"
 else
 tput setaf 9; echo "Connecting is OFF"
-exit 0
+exit -1
 fi
 tput sgr0;
 parent="`pwd`"
+
+pkg='autoconf libtool'
+if ! dpkg -s $pkg >/dev/null 2>&1;
+then
+echo
+tput setaf 9; echo -e "$pkg, not found! Please do install!\n"
+tput setaf 9; echo -e "sudo apt install $pkg\n"
+read -p "Do you want to continue without autoconf ? [y/N]" chk
+case "$chk" in 
+  y|Y ) tput setaf 10; echo "yes";;
+    * ) exit 0;;
+esac
+fi
 
 ##########
 # Eigen3 #
@@ -139,6 +151,8 @@ echo "" >> $Env
 echo "#$FInt" >> $Env
 fi
 cd $parent
+
+
 ###########
 # GSL-2.8 #
 ###########
@@ -273,5 +287,8 @@ cd $parent
 
 # Done! #
 tput setaf 48; echo -e "Installations are Done!"
+
+
+
 echo -e "Source the Environment File(s) and Enjoy your Work."
 echo -e "Cheers!!!\n\n"
