@@ -4,8 +4,7 @@ tput setaf 11;
 echo -e "Starting the GSL, GLoBES Installation Process ...\n"
 echo -e "Make sure, the system is connected to Internet\n"
 echo -e "Testing Connectivity ...\n"
-if ping -v -c 5 -W 1 google.com 1>/dev/null;
-then
+if curl -s --head --connect-timeout 3 https://www.google.com >/dev/null; then
 tput setaf 10; echo "Connection is ON"
 else
 tput setaf 9; echo "Connecting is OFF"
